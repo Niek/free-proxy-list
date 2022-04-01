@@ -1,5 +1,12 @@
 {
   "dependencies": {
-    "free-proxy-checker": "^1.0.3"
+    "country-code-emoji": "^2.3.0",
+    "free-proxy-checker": "^1.0.3",
+    "geolite2-redist": "^3.0.2",
+    "maxmind": "^4.3.6"
+  },
+  "scripts": {
+    "build": "mkdir -p build && node .",
+    "lint": "npx -y standard --fix"
   }
 }
