@@ -40,7 +40,22 @@ const { countryCodeEmoji } = require('country-code-emoji');
     <section class="section">
       <div class="container">
         <h1 class="title">Free Proxy List</h1>
-        <p class="subtitle">Updated: ${Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long' }).format(Date.now())}</p>
+        <div class="field is-grouped is-grouped-multiline is-pulled-right">
+          <div class="control">
+            <div class="tags has-addons">
+              <span class="tag">Proxies (all)</span>
+              <span class="tag is-info">${allProxies.length}</span>
+            </div>
+          </div>
+
+          <div class="control">
+            <div class="tags has-addons">
+              <span class="tag">Proxies (up)</span>
+              <span class="tag is-success">${proxyChecker.getProxiesUp.length}</span>
+            </div>
+          </div>
+        </div>
+        <p class="subtitle"><strong>Updated</strong>: ${Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long' }).format(Date.now())}</p>
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
           <thead>
             <tr>
