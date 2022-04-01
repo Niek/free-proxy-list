@@ -56,7 +56,7 @@ const { countryCodeEmoji } = require('country-code-emoji');
           <div class="control">
             <div class="tags has-addons">
               <span class="tag">Proxies (up)</span>
-              <span class="tag is-success">${proxyChecker.getProxiesUp.length}</span>
+              <span class="tag is-success">${proxyChecker.getProxiesUp().length}</span>
             </div>
           </div>
         </div>
