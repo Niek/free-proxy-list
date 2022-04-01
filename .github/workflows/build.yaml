@@ -18,7 +18,7 @@ jobs:
           node-version: "16"
 
       - name: Build page
-        run: npm ci && node .
+        run: mkdir build && npm ci && node .
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
