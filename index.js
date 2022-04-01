@@ -5,16 +5,20 @@ const { writeFile } = require('fs/promises')
 const { countryCodeEmoji } = require('country-code-emoji');
 
 (async () => {
-  const allProxies = await downloadAllProxies()
+  // Download all proxies
+  const allProxies = (await downloadAllProxies())
+  // And filter duplicate values
+    .filter((value, index, self) => index === self.findIndex((t) => (t.host === value.host && t.port === value.port)))
 
+  // Check which proxies are up
   const proxyChecker = new ProxyChecker(allProxies, {
     concurrency: 100,
     timeout: 7500,
     verbose: true
   })
-
   await proxyChecker.checkProxies()
 
+  // Enrich with country info
   const geolite2 = await import('geolite2-redist')
   const reader = await geolite2.open('GeoLite2-Country', (dbPath) => maxmind.open(dbPath))
   allProxies.map(proxy => {
@@ -27,6 +31,7 @@ const { countryCodeEmoji } = require('country-code-emoji');
     return proxy
   })
 
+  // Write to HTML file
   await writeFile(path.join(__dirname, 'build', 'index.html'), `
 <!DOCTYPE html>
 <html>
