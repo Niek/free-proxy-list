@@ -66,8 +66,7 @@ const { countryCodeEmoji } = require('country-code-emoji');
             <tr>
               <th>Type</th>
               <th>Country</th>
-              <th>IP</th>
-              <th>Port</th>
+              <th>Proxy IP and port</th>
               <th>Up</th>
             </tr>
           </thead>
@@ -76,8 +75,7 @@ const { countryCodeEmoji } = require('country-code-emoji');
             <tr>
               <td>${proxy.constructor.name.replace('Proxy', '').toUpperCase()}</td>
               <td>${proxy.country}</td>
-              <td>${proxy.host}</td>
-              <td>${proxy.port}</td>
+              <td><code>${proxy.host}:${proxy.port}</code></td>
               <td>${proxy.isUp ? '✅' : '❌'}</td>
             </tr>
             `).join('')}
