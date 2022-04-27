@@ -23,7 +23,7 @@ const { countryCodeEmoji } = require('country-code-emoji');
   const reader = await geolite2.open('GeoLite2-Country', (dbPath) => maxmind.open(dbPath))
   allProxies.map(proxy => {
     const lookup = reader.get(proxy.host)
-    if (lookup) {
+    if (lookup && lookup.country) {
       proxy.country = countryCodeEmoji(lookup.country.iso_code) + ' ' + lookup.country.names.en
     } else {
       proxy.country = '--'
