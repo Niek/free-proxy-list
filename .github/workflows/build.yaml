@@ -23,9 +23,8 @@ jobs:
         continue-on-error: true # Don't fail the workflow if the build fails
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
         if: steps.build.outcome == 'success' && steps.build.conclusion == 'success' # Run only if the build succeeded
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
           folder: build
