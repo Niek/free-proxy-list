@@ -24,7 +24,7 @@ jobs:
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.8.0
-        if: steps.build.outcome == 'success' && steps.build.conclusion == 'success' # Run only if the build succeeded
+        if: github.ref == 'refs/heads/main' && steps.build.outcome == 'success' && steps.build.conclusion == 'success' # Run only if the build succeeded on main
         with:
           branch: gh-pages
           folder: build
